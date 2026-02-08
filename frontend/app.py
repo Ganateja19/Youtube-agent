@@ -8,6 +8,14 @@ st.markdown("Enter a YouTube URL to generate a comprehensive summary.")
 
 youtube_url = st.text_input("YouTube Video URL", placeholder="https://www.youtube.com/watch?v=...")
 
+import os
+
+# Get backend URL from environment or default to localhost
+backend_url = os.getenv("BACKEND_URL", "http://localhost:8000")
+if not backend_url.startswith("http"):
+    backend_url = f"https://{backend_url}"
+backend_url = backend_url.rstrip("/")
+
 if st.button("Generate Summary", type="primary"):
     if not youtube_url:
         st.warning("Please enter a YouTube URL.")
@@ -16,7 +24,7 @@ if st.button("Generate Summary", type="primary"):
             try:
                 # Call the backend API
                 response = requests.post(
-                    "http://localhost:8000/summarize",
+                    f"{backend_url}/summarize",
                     json={"youtube_url": youtube_url},
                     timeout=180
                 )
