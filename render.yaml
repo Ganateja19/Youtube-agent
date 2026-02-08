@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: youtube-summarizer-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: uv pip install -r pyproject.toml
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+
+  - type: web
+    name: youtube-summarizer-frontend
+    runtime: python
+    rootDir: frontend
+    buildCommand: uv pip install -r pyproject.toml
+    startCommand: streamlit run app.py
+    envVars:
+      - key: BACKEND_URL
+        fromService:
+          type: web
+          name: youtube-summarizer-backend
+          property: url
