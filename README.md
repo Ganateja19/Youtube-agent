@@ -1,53 +1,62 @@
-# 🎥 YouTube Summarizer Agent (Gemini + LangGraph)
+# 🎥 YouTube Summarizer Agent
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Ganateja19/Youtube-agent)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://youtube-agent-b7pzxe8gxihe4jacehdytf.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
+[![Gemini](https://img.shields.io/badge/AI-Gemini%202.0%20Flash-orange)](https://deepmind.google/technologies/gemini/)
+[![LangGraph](https://img.shields.io/badge/Framework-LangGraph-green)](https://langchain-ai.github.io/langgraph/)
 
-An end-to-end **AI-powered YouTube Summarizer Agent** that extracts high-quality insights from video transcripts using **Google Gemini**, **LangGraph**, **FastAPI**, and **Streamlit**.
+An intelligent **AI Agent** that turns long YouTube videos into concise, structured, and actionable summaries. Built with the power of **Google Gemini 2.0 Flash** and **LangGraph**.
+
+## 🚀 Live Demo
+**[Click here to try the App!](https://youtube-agent-b7pzxe8gxihe4jacehdytf.streamlit.app/)**
+
+---
 
 ## ✨ Features
+- **🔍 Transcript Extraction**: Automatically fetches video transcripts (even from videos without manual captions).
+- **🧠 Intelligent Summarization**: Uses Gemini 2.0 Flash to analyze content depth.
+- **📊 Structured Output**: Delivers:
+    - 📌 Executive Summary
+    - 💡 Key Insights & Highlights
+    - 🛠️ Actionable Takeaways
+    - 📖 Detailed Breakdown
+- **⚡ Fast & Responsive**: Built on Streamlit for a smooth user experience.
 
-- Accepts a **YouTube URL** as input
-- Extracts text via `youtube-transcript-api`
-- Generates:
-  - Executive Summary
-  - Key Insights
-  - Actionable Takeaways
-  - Detailed Breakdown
-- Uses **Gemini LLM only**
-- Agent orchestration with **LangGraph**
-- Backend API with **FastAPI**
-- Simple UI using **Streamlit**
+## 🛠️ Tech Stack
+- **Frontend**: [Streamlit](https://streamlit.io/)
+- **LLM**: [Google Gemini 2.0 Flash](https://deepmind.google/technologies/gemini/)
+- **Agent Framework**: [LangGraph](https://langchain-ai.github.io/langgraph/)
+- **Transcript Tool**: `youtube-transcript-api`
 
-## 🛠 Tech Stack
+## 📦 Local Installation
 
-- **LLM**: Google Gemini (`gemini-1.5-flash`)
-- **Agent Framework**: LangGraph
-- **Backend**: FastAPI
-- **Frontend**: Streamlit
-- **Utilities**: youtube-transcript-api
+If you want to run this locally:
 
-## 🚀 Setup
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Ganateja19/Youtube-agent.git
+    cd Youtube-agent
+    ```
 
-### 1. Environment Variables
-Create a `.env` file in the root directory:
-```
-GOOGLE_API_KEY=your_gemini_api_key_here
-```
+2.  **Install Dependencies**:
+    Requires Python 3.9+
+    ```bash
+    pip install -r frontend/requirements.txt
+    ```
 
-### 2. Backend
-```bash
-cd backend
-uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-uv pip install -r pyproject.toml
-uvicorn app.main:app --reload
-```
+3.  **Set up Environment**:
+    Create a `.env` file in the root directory:
+    ```bash
+    GOOGLE_API_KEY=your_api_key_here
+    ```
 
-### 3. Frontend
-```bash
-cd frontend
-uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-uv pip install -r pyproject.toml
-streamlit run app.py
-```
+4.  **Run the App**:
+    ```bash
+    streamlit run frontend/app.py
+    ```
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to open an issue or submit a Pull Request.
+
+---
+*Created by [Ganateja19](https://github.com/Ganateja19)*
