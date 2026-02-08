@@ -1,2 +1,5 @@
 streamlit
-requests
+google-generativeai
+langgraph
+youtube-transcript-api
+python-dotenv
